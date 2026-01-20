@@ -1,0 +1,17 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Memories</h2>
+        <div class="memories-grid">
+            <!-- Memory Cards -->
+            @for (item of memories; track item.year) {
+            <div class="card memory-card">
+                <div class="memory-year">{{ item.year }}</div>
+                <div class="memory-content">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>

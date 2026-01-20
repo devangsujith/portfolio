@@ -1,0 +1,29 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Adventures</h2>
+
+        <div class="filters">
+            @for (filter of categories; track filter) {
+            <button class="filter-btn" [class.active]="activeFilter() === filter" (click)="setFilter(filter)">
+                {{ filter }}
+            </button>
+            }
+        </div>
+
+        <div class="adventures-grid">
+            @for (adventure of filteredAdventures(); track adventure.id) {
+            <div class="adventure-card animate-fade">
+                <div class="card-img-placeholder" [style.background-color]="adventure.color">
+                    <span>{{ adventure.category }}</span>
+                </div>
+                <div class="card-content">
+                    <h3>{{ adventure.title }}</h3>
+                    <p>{{ adventure.description }}</p>
+                </div>
+            </div>
+            } @empty {
+            <p class="no-data">No adventures found in this category.</p>
+            }
+        </div>
+    </div>
+</section>

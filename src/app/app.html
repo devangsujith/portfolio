@@ -1,0 +1,60 @@
+<header class="navbar">
+  <div class="container nav-container">
+    <div class="logo">Devang Sujith</div>
+
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <nav class="nav-links" [class.active]="isMobileMenuOpen">
+      <a (click)="scrollToSection('hero')">Home</a>
+      <a (click)="scrollToSection('about')">About</a>
+      <a (click)="scrollToSection('memories')">Memories</a>
+      <a (click)="scrollToSection('education')">Education</a>
+      <a (click)="scrollToSection('adventures')">Adventures</a>
+      <a (click)="scrollToSection('hobbies')">Hobbies</a>
+      <a (click)="scrollToSection('todo')">Goals</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div id="hero">
+    <app-hero></app-hero>
+  </div>
+
+  <div id="about">
+    <app-about></app-about>
+  </div>
+
+  <div id="memories">
+    <app-memories></app-memories>
+  </div>
+
+  <div id="education">
+    <app-education></app-education>
+  </div>
+
+  <div id="adventures">
+    <app-adventures></app-adventures>
+  </div>
+
+  <div id="hobbies">
+    <app-hobbies></app-hobbies>
+  </div>
+
+  <div id="todo">
+    <app-todo></app-todo>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <p>&copy; {{ currentYear }} Devang Sujith. All rights reserved.</p>
+    <div class="social-links">
+      <!-- Add social icons if needed -->
+    </div>
+  </div>
+</footer>

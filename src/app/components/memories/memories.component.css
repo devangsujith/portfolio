@@ -1,0 +1,31 @@
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.memory-card {
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--primary-color);
+}
+
+.memory-year {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0.1;
+    color: var(--text-inverse);
+}
+
+.memory-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.memory-content p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}

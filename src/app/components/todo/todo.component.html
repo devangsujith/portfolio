@@ -1,0 +1,34 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Goals & Todos</h2>
+
+        <div class="todo-wrapper">
+            <div class="add-goal">
+                <input type="text" placeholder="Add a new goal..." #goalInput
+                    (keyup.enter)="addGoal(goalInput.value); goalInput.value = ''">
+                <button class="btn" (click)="addGoal(goalInput.value); goalInput.value = ''">Add</button>
+            </div>
+
+            <div class="stats">
+                <p>Completed: {{ completedCount() }} / {{ totalGoals() }}</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" [style.width.%]="progressPercentage()"></div>
+                </div>
+            </div>
+
+            <ul class="goal-list">
+                @for (goal of goals(); track goal.id) {
+                <li [class.completed]="goal.completed" class="animate-slide-in">
+                    <label>
+                        <input type="checkbox" [checked]="goal.completed" (change)="toggleGoal(goal.id)">
+                        <span class="text">{{ goal.text }}</span>
+                    </label>
+                    <button class="delete-btn" (click)="deleteGoal(goal.id)" aria-label="Delete goal">×</button>
+                </li>
+                } @empty {
+                <li class="empty-state">No goals yet. Add one above!</li>
+                }
+            </ul>
+        </div>
+    </div>
+</section>

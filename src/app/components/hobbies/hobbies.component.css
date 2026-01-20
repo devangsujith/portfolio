@@ -1,0 +1,34 @@
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.hobby-card {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.hobby-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}

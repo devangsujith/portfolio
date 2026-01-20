@@ -1,0 +1,14 @@
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Hobbies</h2>
+        <div class="hobbies-grid">
+            @for (hobby of hobbies; track hobby.name) {
+            <div class="hobby-card">
+                <div class="icon">{{ hobby.icon }}</div>
+                <h3>{{ hobby.name }}</h3>
+                <p>{{ hobby.desc }}</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>
