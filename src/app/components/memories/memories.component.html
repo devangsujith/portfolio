@@ -4,14 +4,48 @@
         <div class="memories-grid">
             <!-- Memory Cards -->
             @for (item of memories; track item.year) {
-            <div class="card memory-card">
+            <div class="card memory-card" (click)="openModal(item)">
                 <div class="memory-year">{{ item.year }}</div>
                 <div class="memory-content">
                     <h3>{{ item.title }}</h3>
                     <p>{{ item.description }}</p>
+                    <div class="media-preview" *ngIf="item.media && item.media.length > 0">
+                        <span class="view-media-text">View {{ item.media.length }} Photos/Videos</span>
+                    </div>
                 </div>
             </div>
             }
         </div>
     </div>
+
+    <!-- Gallery Modal -->
+    @if (isModalOpen && activeMemory) {
+    <div class="modal-backdrop" (click)="closeModal()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <button class="close-btn" (click)="closeModal()">×</button>
+
+            <div class="media-container">
+                @if (activeMemory.media[currentMediaIndex].type === 'image') {
+                <img [src]="activeMemory.media[currentMediaIndex].url" alt="Memory Media" class="modal-image">
+                } @else {
+                <iframe [src]="getSafeUrl(activeMemory.media[currentMediaIndex].url)" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen class="modal-video">
+                </iframe>
+                }
+
+                <!-- Navigation Arrows -->
+                @if (activeMemory.media.length > 1) {
+                <button class="nav-btn prev" (click)="prevMedia($event)">&#10094;</button>
+                <button class="nav-btn next" (click)="nextMedia($event)">&#10095;</button>
+                }
+            </div>
+
+            <div class="modal-footer">
+                <h3>{{ activeMemory.title }}</h3>
+                <p>{{ currentMediaIndex + 1 }} / {{ activeMemory.media.length }}</p>
+            </div>
+        </div>
+    </div>
+    }
 </section>
